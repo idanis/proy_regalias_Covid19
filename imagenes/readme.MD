@@ -74,6 +74,8 @@ https://academictorrents.com/details/557481faacd824c83fbf57dcf7b6da9383b3235a
 
 
 <p>
+  Estas son algunas de las librerías que deberá instalar para la ejecución del programa:
+
    matplotlib
    numpy
    opencv
@@ -99,26 +101,26 @@ https://academictorrents.com/details/557481faacd824c83fbf57dcf7b6da9383b3235a
 ```
 
 <div align="center">
-    <img src="./resources/images/app.jpg" width="800"><img>
+    <img src="./scr/resources/images/app.jpg" width="800"><img>
 </div>
 
 <p> Presione el botón Loas Image y seleccione la imagen del paciente que desea diagnosticar.</p>
 
 <div align="center">
-    <img src="./resources/images/Load_image.jpg" width="800"><img>
+    <img src="./scr/resources/images/Load_image.jpg" width="800"><img>
 </div>
 
 <p> Luego presione el botón Run Diagnosis. La aplicación tomará unos segundo en emitir un diagnóstico, al final presione el botón OK en la ventana emergente que contiene el resultado. También podrá observar diferentes porcentajes de confianza para Normal, Neumonía o Covid-19 en la parte derecha de la interfaz</p>
 
 <div align="center">
-    <img src="./resources/images/diagnosis2.JPG" width="800"><img>
+    <img src="./scr/resources/images/diagnosis2.JPG" width="800"><img>
 </div>
 
 <p> Además del diagnóstico la aplicación también genera un mapa de calor en el que se puede observar que zonas de la imagen del paciente activó las diferentes capas de los modelos de redes neuronales convolutivas implementadas. </p>
 
 
 <div align="center">
-    <img src="./resources/images/Diagnosis.JPG" width="800"><img>
+    <img src="./scr/resources/images/Diagnosis.JPG" width="800"><img>
 </div>
 
 
@@ -128,7 +130,7 @@ https://academictorrents.com/details/557481faacd824c83fbf57dcf7b6da9383b3235a
 
 <p> El diagnóstico está basado en 10 modelos de redes neuronales convolutivas que se encuentran listados en el menú Models, allí el usuario puede quitar la selección de algunos modelos en caso de que así lo desee.</p>
 <div align="center">
-    <img src="./resources/images/models.jpg" width="800"><img>
+    <img src="./scr/resources/images/models.jpg" width="800"><img>
 </div>
 
 <h3>web App: uso</h3>
@@ -143,18 +145,18 @@ https://academictorrents.com/details/557481faacd824c83fbf57dcf7b6da9383b3235a
 ```
 <p> copy and paste the http://127.0.0.1:5000/ in any navigator of preference. </p>
 <div align="center">
-    <img src="./resources/images/webapp.jpg" width="800"><img>
+    <img src="./scr/resources/images/webapp.jpg" width="800"><img>
 </div>
 
 <p> Click load image, choose the image that you want to diagnose and click open. </p>
 
 <div align="center">
-    <img src="./resources/images/cargar.jpg" width="800"><img>
+    <img src="./scr/resources/images/cargar.jpg" width="800"><img>
 </div>
 
 <p> Click diagnosis and the algorithm will analyze the image. </p>
 <div align="center">
-    <img src="./resources/images/webdiag.jpg" width="800"><img>
+    <img src="./scr/resources/images/webdiag.jpg" width="800"><img>
 </div>
 <p>
 it will display a heatmap of the diagnosis, and a plot with the distribution of probbility of being normal, pneumonia or covid. 
