@@ -74,17 +74,17 @@ https://academictorrents.com/details/557481faacd824c83fbf57dcf7b6da9383b3235a
 
 
 <p>
-  Estas son algunas de las librerías que deberá instalar para la ejecución del programa:
+    Estas son algunas de las librerías que deberá instalar para la ejecución del programa:
 
-   matplotlib
-   numpy
-   opencv
-   pyside2
-   scipy
-   timm
-   torch
-   torchvision
-   torchcam
+    matplotlib
+    numpy
+    opencv
+    pyside2
+    scipy
+    timm
+    torch
+    torchvision
+    torchcam
 </p>
 
 
