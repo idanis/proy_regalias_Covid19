@@ -1,32 +1,12 @@
-<h1 align="center">COVID RX </h1>
-<h1 align="center">Covid and pneumonia diagnosis using Xray images </h1>
-<h1 align="center"> Desktop and Web App</h1>
+<h1 align="center">Aplicación desarrollada para el diagnóstico de Covid-19 con base en imagenes de rayos X del paciente</h1>
 <p>
-    Radiometric images  have become a very important tool to detect and diagnose COVID-19, due that most of the COVID-19 cases have similar features, just like ground glass opacity and/or consolidation.
-</p>
-<p>
-    Pulmonary lesions have been detected in computer tomography(CT) studies from even before the onset of symptoms until day 14 after the onset of symptoms. However, to date, most diagnostic tools based on CT are developed in hospitals with expensive equipment and where a high experience of radiologists is required.
-</p>
-<p>
-    Therefore, due to the wide availability of chest x-rays in various health care treatments, they are an attractive option for a quick, accurate and less expensive diagnosis of COVID-19. Although RT images can detect suspicious cases early, the images of various viral pneumonias are similar and tend to be confused with other respiratory infections and inflammations, which is why diagnosis through the use of X-rays (RX) can leave a misdiagnosis
-   So, for the X-ray tool to be adequate, it requires a team of expert radiologists who are able to identify and differentiate infections, which is the greatest difficulty with this technology.
-   </p>
-   <p>
-    Currently, many biomedical health problems are using solutions based on artificial intelligence, the use of Convolution Neural Networks (CNN) has proven to be an extremely beneficial tool to extract characteristics from the image and to perform learning of these characteristics to perform image classification. . Deep learning techniques in chest radiographs are gaining popularity and show promising results in different applications, with results that are similar to that of a human expert when solving tasks such as classification in lung diseases, detection of metastases in breast cancer, lesions of the skin, identify diabetic retinopathy, Alzheimer's, reconstruction by magnetic resonance imaging and computed tomography. Detecting COVID-19 through imaging is one of the biggest challenges around the world.
-</p>
-<p>
-Numerous methods for the detection of COVID-19 based on RT images and different architectures have been published in recent months with accuracies of more than 90%.
-</p>
+   Esta aplicación contiene la implementación de diferentes modelos de redes neuronales convolutivas para llevar a cabo el diagnóstico de pacientes con Covid-19, neumonía, o normal basados en imagenes de rayos X. La interfaz de usuario se desarrolló utilizando Qt.
 
+</p>
 
 <p>
 
-From the free data found in different databases, a dataset composed of:
-* more than 10,000 images of COVID-19
-* more than 15,000 images of people in good health
-* more than 11000 images of people with pneumonia (different from covid)
-
-The datasets used are below:
+Los modelos fueron entrenados con imagenes de ejemplos recopiladas de diferentes repositorios públicos, los cuales se listan a continuación:
 
 
 https://github.com/samxmot/RANDGAN - Randomized Generative Adversarial Network for Detection of COVID-19 in Chest X-ray
@@ -47,7 +27,7 @@ https://academictorrents.com/details/557481faacd824c83fbf57dcf7b6da9383b3235a
 </p>
 
 <p>
-    Using Pytorch, different models were trained and the 10 with the best performance were chosen:
+    Los modelos entrenados fueron los siguientes: 
 
     Vgg19
     Densenet
@@ -61,7 +41,124 @@ https://academictorrents.com/details/557481faacd824c83fbf57dcf7b6da9383b3235a
     Xception
 </p>
 
+<h2>Para ejecutar la aplicación</h2>
+
+<h3>Configuración de un ambiente virtual</h3>
+
+```
+    python3.8 -m venv <env_name>
+```
+
 <p>
-A graphic interface was created using Qt and a web page was created, which allows the user to upload a radiomedical image of the thorax and using the trained networks to diagnose the patient's condition.
+    En Anaconda la configuración del ambiente virtual se puede realizar con la siguiente línea:
 </p>
+
+```
+    conda create --name <env_name> python=3.8
+```
+
+<p>Active el ambiente vitual:<p>
+
+
+```
+    cd <env_name> \Scripts\activate.bat
+```
+
+<p>Anaconda:<p>
+
+```
+    conda activate <env_name>
+```
+
+<h3>Librerías necesarias para instalar</h3>
+
+
+<p>
+   matplotlib
+   numpy
+   opencv
+   pyside2
+   scipy
+   timm
+   torch
+   torchvision
+   torchcam
+</p>
+
+
+
+
+<h3>Desktop App: uso</h3>
+
+<p>Ejecutando la aplicaciónp</p>
+
+
+```
+    cd src
+    python app.py
+```
+
+<div align="center">
+    <img src="./resources/images/app.jpg" width="800"><img>
+</div>
+
+<p> Presione el botón Loas Image y seleccione la imagen del paciente que desea diagnosticar.</p>
+
+<div align="center">
+    <img src="./resources/images/Load_image.jpg" width="800"><img>
+</div>
+
+<p> Luego presione el botón Run Diagnosis. La aplicación tomará unos segundo en emitir un diagnóstico, al final presione el botón OK en la ventana emergente que contiene el resultado. También podrá observar diferentes porcentajes de confianza para Normal, Neumonía o Covid-19 en la parte derecha de la interfaz</p>
+
+<div align="center">
+    <img src="./resources/images/diagnosis2.JPG" width="800"><img>
+</div>
+
+<p> Además del diagnóstico la aplicación también genera un mapa de calor en el que se puede observar que zonas de la imagen del paciente activó las diferentes capas de los modelos de redes neuronales convolutivas implementadas. </p>
+
+
+<div align="center">
+    <img src="./resources/images/Diagnosis.JPG" width="800"><img>
+</div>
+
+
+
+<p> El mapa de calor generado por la herramienta se puede guardar presionando el botón Save HeatMap.</p>
+
+
+<p> El diagnóstico está basado en 10 modelos de redes neuronales convolutivas que se encuentran listados en el menú Models, allí el usuario puede quitar la selección de algunos modelos en caso de que así lo desee.</p>
+<div align="center">
+    <img src="./resources/images/models.jpg" width="800"><img>
+</div>
+
+<h3>web App: uso</h3>
+
+<p>Ejecutando la Web app</p>
+
+```
+    cd src
+    cd sites
+    python webApp.py
+
+```
+<p> copy and paste the http://127.0.0.1:5000/ in any navigator of preference. </p>
+<div align="center">
+    <img src="./resources/images/webapp.jpg" width="800"><img>
+</div>
+
+<p> Click load image, choose the image that you want to diagnose and click open. </p>
+
+<div align="center">
+    <img src="./resources/images/cargar.jpg" width="800"><img>
+</div>
+
+<p> Click diagnosis and the algorithm will analyze the image. </p>
+<div align="center">
+    <img src="./resources/images/webdiag.jpg" width="800"><img>
+</div>
+<p>
+it will display a heatmap of the diagnosis, and a plot with the distribution of probbility of being normal, pneumonia or covid. 
+
+</p>
+
 
